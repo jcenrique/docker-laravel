@@ -14,7 +14,7 @@ return new class extends Migration
             $table->foreignId('market_id')->constrained()->onDelete('cascade');
             $table->timestamp('order_date');
             $table->integer('status')->default(0); // 0: pending, 1:procesing ,2: completed, 3 cancelled
-            $table->decimal('total_price', 8, 2)->default(0);
+
             $table->string('notes')->nullable();
             $table->timestamps();
         });

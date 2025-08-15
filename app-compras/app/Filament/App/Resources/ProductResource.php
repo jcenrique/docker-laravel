@@ -4,7 +4,9 @@ namespace App\Filament\App\Resources;
 
 use App\Filament\App\Resources\ProductResource\Pages;
 use App\Filament\App\Resources\ProductResource\RelationManagers;
+
 use App\Models\Product;
+use App\Tables\Columns\MarKetColumn;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -50,11 +52,11 @@ class ProductResource extends Resource
     {
         return $form
             ->schema([
-               Forms\Components\TextInput::make('name')
+                Forms\Components\TextInput::make('name')
                     ->label(__('common.name'))
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Toggle::make('is_active')
+                Forms\Components\Toggle::make('active')
                     ->label(__('common.active'))
                     ->default(true)
                     ->inline(false)
@@ -107,7 +109,10 @@ class ProductResource extends Resource
     {
         return $table
 
-               ->defaultGroup('category.name')
+            ->striped()
+             ->defaultPaginationPageOption(25)
+             ->extremePaginationLinks()
+            ->defaultGroup('category.name')
             ->defaultSort('name', 'asc')
             ->groups([
                 Group::make('category.name')
@@ -133,7 +138,7 @@ class ProductResource extends Resource
                     ->sortable(),
 
                 Tables\Columns\TextColumn::make('category.name')
-                ->hidden(function (Table $table) {
+                    ->hidden(function (Table $table) {
                         if ($table->getGrouping() && $table->getGrouping()->getId() === 'category.name') {
                             return true;
                         }
@@ -141,38 +146,44 @@ class ProductResource extends Resource
                     ->label(__('common.category'))
 
                     ->sortable(),
-                Tables\Columns\TextColumn::make('market.name')
-                    ->label(__('common.market'))
-                    ->hidden(function (Table $table) {
-                        if ($table->getGrouping() &&  $table->getGrouping()->getId() === 'market.name') {
-                            return true;
-                        }
-                    })
+               MarKetColumn::make('market.name')
+                    ->label(__('common.market')),
+                    // ->hidden(function (Table $table) {
+                    //     if ($table->getGrouping() &&  $table->getGrouping()->getId() === 'market.name') {
+                    //         return true;
+                    //     }
+                    // }),
 
-                    ->sortable(),
+
+
+                // Tables\Columns\TextColumn::make('market.name')
+                //     ->label(__('common.market'))
+                //     ->hidden(function (Table $table) {
+                //         if ($table->getGrouping() &&  $table->getGrouping()->getId() === 'market.name') {
+                //             return true;
+                //         }
+                //     })
+
+                //     ->sortable(),
                 Tables\Columns\ImageColumn::make('image')
                     ->label(__('common.image'))
                     ->circular()
 
                     ->size(50),
 
-                Tables\Columns\ToggleColumn::make('is_active')
+                Tables\Columns\ToggleColumn::make('active')
                     ->label(__('common.active')),
                 Tables\Columns\TextColumn::make('brand')
                     ->label(__('common.brand'))
                     ->sortable()
                     ->searchable(),
-                Tables\Columns\TextColumn::make('created_at')
 
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
+                Tables\Filters\Filter::make('active')
+                    ->label(__('common.active'))
+                    ->query(fn(Builder $query, array $data): Builder => $query->active()),
+
                 Tables\Filters\SelectFilter::make('category_id')
                     ->label(__('common.category'))
                     ->relationship('category', 'name')
@@ -215,8 +226,8 @@ class ProductResource extends Resource
     {
         return [
             'index' => Pages\ListProducts::route('/'),
-           // 'create' => Pages\CreateProduct::route('/create'),
-           // 'edit' => Pages\EditProduct::route('/{record}/edit'),
+            // 'create' => Pages\CreateProduct::route('/create'),
+            // 'edit' => Pages\EditProduct::route('/{record}/edit'),
         ];
     }
 }

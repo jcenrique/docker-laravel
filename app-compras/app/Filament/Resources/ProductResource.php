@@ -59,7 +59,7 @@ class ProductResource extends Resource
                     ->label(__('common.name'))
                     ->required()
                     ->maxLength(255),
-                Forms\Components\Toggle::make('is_active')
+                Forms\Components\Toggle::make('active')
                     ->label(__('common.active'))
                     ->default(true)
                     ->inline(false)
@@ -202,7 +202,7 @@ class ProductResource extends Resource
 
                     ->size(50),
 
-                Tables\Columns\ToggleColumn::make('is_active')
+                Tables\Columns\ToggleColumn::make('active')
                     ->label(__('common.active')),
                 Tables\Columns\TextColumn::make('brand')
                     ->label(__('common.brand'))

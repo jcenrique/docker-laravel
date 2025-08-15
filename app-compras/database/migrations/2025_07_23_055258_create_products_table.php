@@ -25,7 +25,7 @@ return new class extends Migration
                 ->constrained()
                 ->onDelete('cascade');
             $table->string('image')->nullable();
-            $table->boolean('is_active')->default(true);
+            $table->boolean('active')->default(true);
             $table->string('brand')->nullable();
 
             $table->timestamps();

@@ -12,8 +12,14 @@ class OrderItem extends Model
         'product_id',
         'quantity',
         'price',
+        'is_basket'
     ];
 
+    protected $casts = [
+        'is_basket' => 'boolean',
+        'price' => 'decimal:2',
+        'quantity' => 'integer',
+    ];
     public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class);

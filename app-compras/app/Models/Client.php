@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+
 use App\Observers\ClientObserver;
 use Filament\Models\Contracts\FilamentUser;
 use Filament\Panel;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Attributes\ObservedBy;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -18,6 +20,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 
 #[ObservedBy(ClientObserver::class)]
+
 class Client extends Authenticatable implements FilamentUser,  MustVerifyEmail
 {
 
@@ -31,6 +34,7 @@ class Client extends Authenticatable implements FilamentUser,  MustVerifyEmail
         'name',
         'email',
         'password',
+        'active'
     ];
 
     protected $hidden = [
@@ -46,11 +50,20 @@ class Client extends Authenticatable implements FilamentUser,  MustVerifyEmail
      public function canAccessPanel(Panel $panel): bool
     {
 
-        return str_ends_with($this->email, '@free.fr');
+        return str_ends_with($this->email, '@free.fr', ) && $this->hasVerifiedEmail();
     }
 
     public function ordes(): HasMany
     {
         return $this->hasMany(Order::class);
     }
+
+    /**
+     * Scope a query to only include active categories.
+     */
+    public function scopeActive($query)
+    {
+        return $query->where('active', true);
+    }
+
 }

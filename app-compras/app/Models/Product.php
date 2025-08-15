@@ -37,7 +37,7 @@ class Product extends Model implements Auditable
         'category_id',
         'market_id',
         'image',
-        'is_active',
+        'active',
         'brand',
     ];
 
@@ -63,7 +63,7 @@ class Product extends Model implements Auditable
      */
     public function scopeActive($query)
     {
-        return $query->where('is_active', true);
+        return $query->where('active', true);
     }
     public function orderItems(): HasMany
     {

@@ -19,14 +19,14 @@ class Order extends Model implements Auditable
         'market_id',
         'order_date',
         'status',
-        'total_price',
+
         'notes'
     ];
 
     public  $casts = [
         'order_date' => 'datetime',
         'status' => OrderStatus::class, // This should match the enum type in your database
-        'total_price' => 'decimal:2',
+
     ];
 
     public function client(): BelongsTo

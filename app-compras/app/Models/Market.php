@@ -31,6 +31,14 @@ class Market extends Model implements Auditable
         'logo',
         'active',
     ];
+
+    /**
+     * Get the route key for the model.
+     */
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
     public function products()
     {
         return $this->hasMany(Product::class);

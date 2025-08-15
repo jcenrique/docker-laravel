@@ -13,7 +13,7 @@ class MarketPolicy
     /**
      * Determine whether the user can view any models.
      */
-    public function viewAny(User $user): bool
+    public function viewAny( $user): bool
     {
         return $user->can('view_any_market');
     }
@@ -21,7 +21,7 @@ class MarketPolicy
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Market $market): bool
+    public function view( $user, Market $market): bool
     {
         return $user->can('view_market');
     }
@@ -29,7 +29,7 @@ class MarketPolicy
     /**
      * Determine whether the user can create models.
      */
-    public function create(User $user): bool
+    public function create( $user): bool
     {
         return $user->can('create_market');
     }
@@ -37,7 +37,7 @@ class MarketPolicy
     /**
      * Determine whether the user can update the model.
      */
-    public function update(User $user, Market $market): bool
+    public function update( $user, Market $market): bool
     {
         return $user->can('update_market');
     }
@@ -45,7 +45,7 @@ class MarketPolicy
     /**
      * Determine whether the user can delete the model.
      */
-    public function delete(User $user, Market $market): bool
+    public function delete( $user, Market $market): bool
     {
         return $user->can('delete_market');
     }
@@ -53,7 +53,7 @@ class MarketPolicy
     /**
      * Determine whether the user can bulk delete.
      */
-    public function deleteAny(User $user): bool
+    public function deleteAny( $user): bool
     {
         return $user->can('delete_any_market');
     }
@@ -61,7 +61,7 @@ class MarketPolicy
     /**
      * Determine whether the user can permanently delete.
      */
-    public function forceDelete(User $user, Market $market): bool
+    public function forceDelete( $user, Market $market): bool
     {
         return $user->can('force_delete_market');
     }
@@ -69,7 +69,7 @@ class MarketPolicy
     /**
      * Determine whether the user can permanently bulk delete.
      */
-    public function forceDeleteAny(User $user): bool
+    public function forceDeleteAny( $user): bool
     {
         return $user->can('force_delete_any_market');
     }
@@ -77,7 +77,7 @@ class MarketPolicy
     /**
      * Determine whether the user can restore.
      */
-    public function restore(User $user, Market $market): bool
+    public function restore( $user, Market $market): bool
     {
         return $user->can('restore_market');
     }
@@ -93,7 +93,7 @@ class MarketPolicy
     /**
      * Determine whether the user can replicate.
      */
-    public function replicate(User $user, Market $market): bool
+    public function replicate( $user, Market $market): bool
     {
         return $user->can('replicate_market');
     }
@@ -101,7 +101,7 @@ class MarketPolicy
     /**
      * Determine whether the user can reorder.
      */
-    public function reorder(User $user): bool
+    public function reorder( $user): bool
     {
         return $user->can('reorder_market');
     }

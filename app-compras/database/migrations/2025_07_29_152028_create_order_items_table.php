@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
             $table->integer('quantity');
             $table->decimal('price', 8, 2); // Precio unitario
+            $table->boolean('is_basket')->default(false); // Indica si es un producto de cesta
             $table->timestamps();
         });
     }

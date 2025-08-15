@@ -76,6 +76,11 @@ return [
     'category' => 'Categoría',
     'market' => 'Supermercado',
     'is_unique_market' => 'Producto único por supermercado',
+    'product_already_exists' => 'El producto ya existe en el supermercado seleccionado.',
+    'product_not_found' => 'El producto no fue encontrado.',
+    'product' => 'Producto',
+    'products' => 'Productos',
+    'product_created' => 'Producto creado correctamente.',
 
       /*|--------------------------------------------------------------------------
     | Client Resource
@@ -105,11 +110,58 @@ return [
     'total_price' => 'Precio total',
     'order_status' => 'Estado del pedido',
     'items_count' => 'Numero de productos',
+    'items_count_prefix' => 'Nº de productos: ',
     'order_statuses' => [
         'pending' => 'Pendiente',
         'processing' => 'Procesando',
         'completed' => 'Completado',
         'canceled' => 'Cancelado',
     ],
+    'items' => 'Productos',
+    'product' => 'Producto',
+    'quantity' => 'Cantidad',
+    'total' => 'Total',
+    'order_items_label' => 'Producto del pedido',
+    'order_items_plural_label' => 'Productos del pedido',
+    'subtotal' => 'Subtotal',
+    'comprar' => 'Comprar',
+    'copy' => 'Copiar',
+    'is_basket' => 'En la cesta',
+    'finalize_order' => 'Finalizar pedido',
+    'save_pending' => 'Guardar pendientes',
+    'save_pending_tooltip' => 'Guarda los productos pendientes del pedido en un nuevo pedido',
+    'basket' => 'Cesta',
+
+
+    'basket_empty' => 'La cesta está vacía',
+    'open_order' => 'Reabrir pedido',
+    'change_status' => 'Cambiar estado',
+    'add_to_basket' => 'Añadir a la cesta',
+    'items_added_to_basket' => 'Productos añadidos a la cesta',
+    'pending_items_saved' => 'Productos pendientes guardados en un nuevo pedido',
+    'change_quantity' => 'Cambiar cantidad',
+    'change_quantity_tooltip' => 'Cambiar la cantidad del producto en el pedido',
+
+    'copy_order' => 'Copiar pedido',
+    'copy_order_tooltip' => 'Copiar el pedido actual a un nuevo pedido',
+    'order_copied_successfully' => 'Pedido copiado correctamente.',
+    'copy_order_modal_heading' => 'Copiar pedido',
+    'copy_order_modal_submit_action_label' => 'Copiar pedido',
+
+    'new_order' => 'Nuevo pedido',
+    'order_copied' => 'Pedido copiado correctamente',
+
+
+    'order_copied_to' => 'Pedido copiado a :market',
+    'order_copied_to_helper_text' => 'El pedido ha sido copiado al supermercado seleccionado.',
+    'order_copied_to_required' => 'El supermercado es obligatorio',
+    'order_copied_to_placeholder' => 'Seleccione un supermercado',
+    'copy_order_description' => 'Seleccione la nueva fecha para el pedido. El pedido se copiará con todos sus productos y cantidades.',
+    'copy_order' => 'Copiar pedido',
+
+    'all_items_in_basket' => 'Todos los productos están en la cesta',
+    'finalize_order_confirmation' => 'El pedido se ha finalizado',
+    'order_finalized' => 'Pedido finalizado correctamente',
+
 
 ];

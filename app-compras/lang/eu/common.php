@@ -69,8 +69,13 @@ return [
     'category' => 'Kategoria',
     'market' => 'Merkatua',
     'is_unique_market' => 'Produktu bakarra merkatuan',
+    'product_already_exists' => 'Produktua dagoeneko hautatutako supermerkatuan existitzen da.',
+    'product_not_found' => 'Produktua ez da aurkitu.',
+    'product' => 'Produktua',
+    'products' => 'Produktuak',
+    'product_created' => 'Produktua ondo sortu da.',
 
-          /*|--------------------------------------------------------------------------
+    /*|--------------------------------------------------------------------------
     | Section Resource
     |--------------------------------------------------------------------------
     */
@@ -98,10 +103,57 @@ return [
     'total_price' => 'Prezio osoa',
     'order_status' => 'Eskariaren egoera',
     'items_count' => 'Produktu kopurua',
+    'items_count_prefix' => 'Produktu kopurua: ',
     'order_statuses' => [
         'pending' => 'Zain',
         'processing' => 'Prozesatzen',
         'completed' => 'Osatua',
         'canceled' => 'Ezeztatuta',
     ],
+
+    'items' => 'Produktuak',
+    'product' => 'Produktu',
+    'quantity' => 'Kantitatea',
+    'total' => 'Total',
+    'order_items_label' => 'Produktuaren eskaria',
+    'order_items_plural_label' => 'Produktuaren eskariak',
+    'subtotal' => 'Subtotal',
+    'comprar' => 'Erosi',
+    'copy' => 'Kopiatu',
+    'is_basket' => 'Saskian',
+    'finalize_order' => 'Eskaria amaitu',
+    'save_pending' => 'Gorde zain',
+    'save_pending_tooltip' => 'Gorde eskariaren zain dauden produktuak beste eskari batean',
+    'basket' => 'Saskia',
+    'items_added_to_basket' => 'Produktuak saskira gehitu dira',
+
+    'basket_empty' => 'Saskia hutsik dago',
+    'open_order' => 'Eskaria berriro ireki',
+    'change_status' => 'Egoera aldatu',
+    'add_to_basket' => 'Saskira gehitu',
+    'pending_items_saved' => 'Zain dauden produktuak eskaera berrian gorde dira',
+    'change_quantity' => 'Kantitatea aldatu',
+    'change_quantity_tooltip' => 'Aldatu produktuen kantitatea eskaeran',
+
+    'copy_order' => 'Eskaria kopiatu',
+    'copy_order_tooltip' => 'Uneko eskaria beste eskaera batean kopiatu',
+    'order_copied_successfully' => 'Eskaria ondo kopiatu da.',
+    'copy_order_modal_heading' => 'Eskaria kopiatu',
+    'copy_order_modal_submit_action_label' => 'Eskaria kopiatu',
+
+
+    'new_order' => 'Eskaera berria',
+    'order_copied' => 'Eskaria ondo kopiatu da',
+
+
+    'order_copied_to' => 'Eskaria kopiatu da :market-(e)ra',
+    'order_copied_to_helper_text' => 'Eskaria hautatutako supermerkatura kopiatu da.',
+    'order_copied_to_required' => 'Supermerkatua beharrezkoa da',
+    'order_copied_to_placeholder' => 'Hautatu supermerkatu bat',
+    'copy_order_description' => 'Hautatu eskaeraren data berria. Eskaera produktu eta kantitate guztiekin kopiatu egingo da.',
+    'copy_order' => 'Eskaria kopiatu',
+
+    'all_items_in_basket' => 'Produktu guztiak saskian daude',
+    'finalize_order_confirmation' => 'Eskaria amaitu da',
+    'order_finalized' => 'Eskaria ondo amaitu da',
 ];

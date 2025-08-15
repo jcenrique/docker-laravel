@@ -13,9 +13,11 @@ use Filament\Pages\Auth\EditProfile;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
+use Filament\Support\Enums\MaxWidth;
 use Filament\Widgets;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
+use Illuminate\Foundation\Http\Middleware\TrimStrings;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
@@ -34,8 +36,10 @@ class AppPanelProvider extends PanelProvider
             ->emailVerification()
             ->profile(EditProfile::class)
             ->brandLogo(asset('images/logo.png'))
+            ->maxContentWidth(MaxWidth::Full)
             ->brandLogoHeight('3rem')
-             ->darkMode(false)
+            ->viteTheme('resources/css/filament/app/theme.css')
+           //  ->darkMode(false)
             ->colors([
                 'primary' => Color::Blue,
             ])
@@ -59,6 +63,7 @@ class AppPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                TrimStrings::class
             ])
              ->defaultAvatarProvider(GravatarProvider::class)
              ->plugins([
@@ -70,6 +75,7 @@ class AppPanelProvider extends PanelProvider
 
             ->authMiddleware([
                 Authenticate::class,
+
             ]);
     }
 }
